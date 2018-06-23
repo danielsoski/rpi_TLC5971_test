@@ -2,13 +2,12 @@
 
 #include "TLC5971.h"
 #include <wiringPi.h>
-#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 
 TLC5971::TLC5971(int num, int pinSCKI, int pinSDTI)
 {
-    cout << "Parametrized Constructor called" << endl;
     this->num = num;
     this->pinSCKI = pinSCKI;
     this->pinSDTI = pinSDTI;
@@ -18,15 +17,15 @@ TLC5971::TLC5971(int num, int pinSCKI, int pinSDTI)
 }
 
 void TLC5971::sleep_setup() {
-  nanosleep(this->&tsetup, NULL);
+  nanosleep(&tsetup, NULL);
 }
 
 void TLC5971::sleep_width() {
-  nanosleep(this->&twidth, NULL);
+  nanosleep(&twidth, NULL);
 }
 
 void TLC5971::sleep_hold() {
-  nanosleep(this->&thold, NULL);
+  nanosleep(&thold, NULL);
 }
 
 int TLC5971::send_bit(int val)
@@ -113,10 +112,8 @@ void TLC5971::set_blank(bool val)
   }
 }
 
-void TLC5971::set_8bit_color(int channel, uint8_t r, uint8_t, g, uint8_t b)
+void TLC5971::set_8bit_color(int channel, uint8_t r, uint8_t g, uint8_t b)
 {
     if (channel < 0 || channel > 3) return;
-    int r_scaled = (int)r * GS_100 / 257;
-
-    cout << "Geek id is: " << id;
+    //int r_scaled = (int)r * GS_100 / 257;
 }

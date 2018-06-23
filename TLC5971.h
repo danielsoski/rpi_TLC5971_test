@@ -36,6 +36,13 @@
 
 class TLC5971
 {
+  public:
+  TLC5971(int num, int pinSCKI, int pinSDTI);
+  void printConfig();
+  void write();
+  void set_blank(bool val);
+  void set_8bit_color(int channel, uint8_t r, uint8_t g, uint8_t b);
+
   private:
   int num;
   int pinSCKI;
@@ -67,10 +74,4 @@ class TLC5971
   void send_6bits(uint8_t val);
   void send_7bits(uint8_t val);
   void send_16bits(uint16_t val);
-
-  public:
-  void printConfig();
-  void write();
-  void set_blank(bool val);
-  void set_8bit_color(int channel, uint8_t r, uint8_t, g, uint8_t b);
 };
