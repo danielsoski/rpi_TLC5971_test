@@ -3,6 +3,7 @@
 #include <time.h>
 
 #define T_SCALE 10000
+#define CURR_MAX_MA 60
 
 #define CMD_WRITE 0x25
 #define OUTTMG_FALL 0
@@ -41,6 +42,7 @@ class TLC5971
   void printConfig();
   void write();
   void set_blank(bool val);
+  void set_current_ma(int current_ma);
   void set_8bit_color(int channel, uint8_t r, uint8_t g, uint8_t b);
 
   private:

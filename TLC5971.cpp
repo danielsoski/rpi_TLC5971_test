@@ -112,8 +112,29 @@ void TLC5971::set_blank(bool val)
   }
 }
 
+void TLC5971::set_current_ma(int current_ma)
+{
+  if (current_ma < 0 || current_ma > 60) {
+    return;
+  }
+
+  uint8_t bc_val = current_ma * 127 / CURR_MAX_MA;
+  this->config_bc_r = bc_val;
+  this->config_bc_g = bc_val;
+  this->config_bc_b = bc_val;
+}
+
 void TLC5971::set_8bit_color(int channel, uint8_t r, uint8_t g, uint8_t b)
 {
-    if (channel < 0 || channel > 3) return;
-    //int r_scaled = (int)r * GS_100 / 257;
+    if (channel < 0 || channel > 3) {
+      return;
+    }
+
+    uint16_t r_scaled = (int)r * GS_100 / 257;
+    uint16_t g_scaled = (int)g * GS_100 / 257;
+    uint16_t b_scaled = (int)b * GS_100 / 257;
+
+    this->config_gs_r[channel] = r_scaled;
+    this->config_gs_g[channel] = g_scaled;
+    this->config_gs_b[channel] = b_scaled;
 }
