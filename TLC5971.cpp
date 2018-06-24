@@ -122,7 +122,7 @@ void TLC5971::set_blank(bool val)
 
 void TLC5971::set_current_ma(int current_ma)
 {
-  if (current_ma < 0 || current_ma > 60) {
+  if (current_ma < 0 || current_ma > CURR_MAX_MA) {
     return;
   }
 
