@@ -69,6 +69,23 @@ void TLC5971::printConfig()
   cout << "num: " << this->num << endl;
   cout << "pinSCKI: " << this->pinSCKI << endl;
   cout << "pinSDTI: " << this->pinSDTI << endl;
+
+  cout << "config_outtmg: " << this->config_outtmg << endl;
+  cout << "config_extgck: " << this->config_extgck << endl;
+  cout << "config_tmgrst: " << this->config_tmgrst << endl;
+  cout << "config_dsprpt: " << this->config_dsprpt << endl;
+  cout << "config_blank: " << this->config_blank << endl;
+
+  cout << "config_bc_r: " << (unsigned int)this->config_bc_r << endl;
+  cout << "config_bc_g: " << (unsigned int)this->config_bc_g << endl;
+  cout << "config_bc_b: " << (unsigned int)this->config_bc_b << endl;
+
+  int i;
+  for (i=0; i<3; i++) {
+    cout << "config_gs_r[" << i << "]: " << this->config_gs_r[i] << endl;
+    cout << "config_gs_g[" << i << "]: " << this->config_gs_g[i] << endl;
+    cout << "config_gs_b[" << i << "]: " << this->config_gs_b[i] << endl;
+  }
 }
 
 void TLC5971::write()
