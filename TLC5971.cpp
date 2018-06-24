@@ -130,9 +130,9 @@ void TLC5971::set_8bit_color(int channel, uint8_t r, uint8_t g, uint8_t b)
       return;
     }
 
-    uint16_t r_scaled = (int)r * GS_100 / 257;
-    uint16_t g_scaled = (int)g * GS_100 / 257;
-    uint16_t b_scaled = (int)b * GS_100 / 257;
+    uint16_t r_scaled = (int)r * GS_100 / 255;
+    uint16_t g_scaled = (int)g * GS_100 / 255;
+    uint16_t b_scaled = (int)b * GS_100 / 255;
 
     this->config_gs_r[channel] = r_scaled;
     this->config_gs_g[channel] = g_scaled;
