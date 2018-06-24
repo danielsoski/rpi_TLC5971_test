@@ -8,6 +8,7 @@
 #define CMD_WRITE 0x25
 #define OUTTMG_FALL 0
 #define OUTTMG_RISE 1
+#define EXTGCK_EXT 0
 #define EXTGCK_INT 1
 #define TMGRST_DIS 0
 #define TMGRST_EN 1
