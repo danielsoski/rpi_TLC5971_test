@@ -81,7 +81,7 @@ void TLC5971::printConfig()
   cout << "config_bc_b: " << (unsigned int)this->config_bc_b << endl;
 
   int i;
-  for (i=0; i<3; i++) {
+  for (i=0; i<4; i++) {
     cout << "config_gs_r[" << i << "]: " << this->config_gs_r[i] << endl;
     cout << "config_gs_g[" << i << "]: " << this->config_gs_g[i] << endl;
     cout << "config_gs_b[" << i << "]: " << this->config_gs_b[i] << endl;
