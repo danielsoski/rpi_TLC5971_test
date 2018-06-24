@@ -38,42 +38,42 @@
 class TLC5971
 {
   public:
-  TLC5971(int num, int pinSCKI, int pinSDTI);
-  void printConfig();
-  void write();
-  void set_blank(bool val);
-  void set_current_ma(int current_ma);
-  void set_8bit_color(int channel, uint8_t r, uint8_t g, uint8_t b);
+    TLC5971(int num, int pinSCKI, int pinSDTI);
+    void printConfig();
+    void write();
+    void set_blank(bool val);
+    void set_current_ma(int current_ma);
+    void set_8bit_color(int channel, uint8_t r, uint8_t g, uint8_t b);
 
   private:
-  int num;
-  int pinSCKI;
-  int pinSDTI;
+    struct timespec tsetup = {.tv_sec=0, .tv_nsec=5L*T_SCALE};
+    struct timespec thold = {.tv_sec=0, .tv_nsec=3L*T_SCALE};
+    struct timespec twidth = {.tv_sec=0, .tv_nsec=10L*T_SCALE};
 
-  struct timespec tsetup = {.tv_sec=0, .tv_nsec=5L*T_SCALE};
-  struct timespec thold = {.tv_sec=0, .tv_nsec=3L*T_SCALE};
-  struct timespec twidth = {.tv_sec=0, .tv_nsec=10L*T_SCALE};
+    int num;
+    int pinSCKI;
+    int pinSDTI;
 
-  bool config_outtmg = OUTTMG_FALL;
-  bool config_extgck = EXTGCK_INT;
-  bool config_tmgrst = TMGRST_DIS;
-  bool config_dsprpt = DSPRPT_DIS;
-  bool config_blank = BLANK_OFF;
+    bool config_outtmg = OUTTMG_FALL;
+    bool config_extgck = EXTGCK_INT;
+    bool config_tmgrst = TMGRST_DIS;
+    bool config_dsprpt = DSPRPT_DIS;
+    bool config_blank = BLANK_OFF;
 
-  uint8_t config_bc_r = 0;
-  uint8_t config_bc_g = 0;
-  uint8_t config_bc_b = 0;
+    uint8_t config_bc_r = 0;
+    uint8_t config_bc_g = 0;
+    uint8_t config_bc_b = 0;
 
-  uint16_t config_gs_r[4] = {0};
-  uint16_t config_gs_g[4] = {0};
-  uint16_t config_gs_b[4] = {0};
+    uint16_t config_gs_r[4] = {0};
+    uint16_t config_gs_g[4] = {0};
+    uint16_t config_gs_b[4] = {0};
 
-  void sleep_setup();
-  void sleep_width();
-  void sleep_hold();
-  int send_bit(int val);
-  void send_bits(int len, uint16_t val);
-  void send_6bits(uint8_t val);
-  void send_7bits(uint8_t val);
-  void send_16bits(uint16_t val);
+    void sleep_setup();
+    void sleep_width();
+    void sleep_hold();
+    int send_bit(int val);
+    void send_bits(int len, uint16_t val);
+    void send_6bits(uint8_t val);
+    void send_7bits(uint8_t val);
+    void send_16bits(uint16_t val);
 };
