@@ -58,7 +58,7 @@ class TLC5971
     bool config_outtmg = OUTTMG_FALL;
     bool config_extgck = EXTGCK_INT;
     bool config_tmgrst = TMGRST_DIS;
-    bool config_dsprpt = DSPRPT_DIS;
+    bool config_dsprpt = DSPRPT_EN;
     bool config_blank = BLANK_OFF;
 
     uint8_t config_bc_r = 0;
